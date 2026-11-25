@@ -1,11 +1,79 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta http-equiv="refresh" content="0;url=NOIR_XO_Mobile.html">
-<title>NOIR.XO</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <title>NOIR • Tic Tac Toe</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Welcome to NOIR.XO</h1>
-<a href="NOIR_XO_Mobile.html">Play Game</a>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Noir home"><span class="brand-mark">N</span><span>NOIR<span class="gold">.XO</span></span></a>
+      <div class="top-actions">
+        <button class="icon-btn" id="soundToggle" aria-label="Toggle sound" title="Toggle sound">♫</button>
+        <button class="icon-btn" id="themeToggle" aria-label="Change theme" title="Change theme">◐</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow"><span></span> THE CLASSIC, REIMAGINED</p>
+      <h1>MAKE YOUR <span class="gold">MOVE.</span></h1>
+      <p class="subtitle">A little strategy. A little style. Your next move awaits.</p>
+    </section>
+
+    <section class="game-layout">
+      <aside class="panel setup-panel">
+        <div class="panel-heading"><span class="step">01</span><div><h2>Game setup</h2><p>Choose how you want to play</p></div></div>
+        <label for="mode">GAME MODE</label>
+        <select id="mode">
+          <option value="cpu">Player vs Computer</option>
+          <option value="pvp">Two Players</option>
+        </select>
+        <label for="difficulty" id="difficultyLabel">AI DIFFICULTY</label>
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <div class="player-card">
+          <div class="player-avatar">X</div><div class="player-info"><strong id="playerOneName">YOU</strong><span>First player</span></div><span class="status-dot"></span>
+        </div>
+        <div class="player-card second">
+          <div class="player-avatar o-avatar">O</div><div class="player-info"><strong id="playerTwoName">NOIR AI</strong><span>Second player</span></div><span class="status-dot"></span>
+        </div>
+        <button class="secondary-btn" id="newGameBtn">↻ <span>New game</span></button>
+      </aside>
+
+      <section class="panel board-panel">
+        <div class="board-topline"><div><span class="step">02</span><span class="section-kicker">THE ARENA</span></div><span class="round-pill" id="roundLabel">ROUND 01</span></div>
+        <div class="turn-banner" id="turnBanner"><span class="turn-symbol">X</span><span><small>IT'S YOUR TURN</small><strong id="turnText">Player X</strong></span></div>
+        <div class="board" id="board" role="grid" aria-label="Tic tac toe board">
+          <button class="cell" data-index="0" aria-label="Cell 1"></button><button class="cell" data-index="1" aria-label="Cell 2"></button><button class="cell" data-index="2" aria-label="Cell 3"></button>
+          <button class="cell" data-index="3" aria-label="Cell 4"></button><button class="cell" data-index="4" aria-label="Cell 5"></button><button class="cell" data-index="5" aria-label="Cell 6"></button>
+          <button class="cell" data-index="6" aria-label="Cell 7"></button><button class="cell" data-index="7" aria-label="Cell 8"></button><button class="cell" data-index="8" aria-label="Cell 9"></button>
+        </div>
+        <div class="game-footer"><span><i class="live-dot"></i> LIVE MATCH</span><span>BEST OF YOUR NEXT MOVE</span></div>
+        <div class="result" id="result" aria-live="polite"></div>
+      </section>
+
+      <aside class="panel stats-panel">
+        <div class="panel-heading"><span class="step">03</span><div><h2>Your stats</h2><p>This session's performance</p></div></div>
+        <div class="stat-grid">
+          <div class="stat-box"><span>WINS</span><strong id="wins">0</strong><small>VICTORIES</small></div>
+          <div class="stat-box"><span>DRAWS</span><strong id="draws">0</strong><small>EVEN MATCHES</small></div>
+          <div class="stat-box"><span>LOSSES</span><strong id="losses">0</strong><small>LESSONS</small></div>
+        </div>
+        <div class="winrate"><div><span>WIN RATE</span><strong id="winRate">0%</strong></div><div class="progress"><span id="progressBar"></span></div></div>
+        <button class="text-btn" id="resetStats">Reset statistics <span>↗</span></button>
+        <div class="quote"><span class="quote-mark">“</span><p>Great moves come from a calm mind.</p><small>— THE NOIR MINDSET</small></div>
+      </aside>
+    </section>
+    <footer><span>NOIR.XO</span><span>DESIGNED TO PLAY DIFFERENT.</span><span>© <span id="year"></span></span></footer>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
 </body>
 </html>
